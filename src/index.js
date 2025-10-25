@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import { db } from "./config/firebase.js";
+import productRouter from "./routes/products.routes.js";
 
 // Variables de entorno
 dotenv.config();
@@ -41,6 +42,9 @@ app.use(cors(corsOptions));
 app.get("/", (req, res) => {
     res.send("API del TPF de Node.js está en línea.");
 });
+
+// Rutas de la API
+app.use("/api/products", productRouter);
 
 // Middleware para rutas no encontradas (404)
 app.use((req, res) => {
