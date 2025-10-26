@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import { db } from "./config/firebase.js";
 import productRouter from "./routes/products.routes.js";
 import authRouter from "./routes/auth.routes.js";
+import categoryRouter from "./routes/categories.routes.js";
 
 // Variables de entorno
 dotenv.config();
@@ -46,6 +47,7 @@ app.get("/", (req, res) => {
 
 // Rutas de la API
 app.use("/api/products", productRouter);
+app.use("/api/categories", categoryRouter);
 app.use("/auth", authRouter);
 
 // Middleware para rutas no encontradas (404)

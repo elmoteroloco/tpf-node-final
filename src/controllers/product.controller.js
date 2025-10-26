@@ -43,6 +43,14 @@ export class ProductController {
                 });
             }
 
+            // Lógica de Dry Run
+            if (req.user && req.user.admin && !req.user.superAdmin) {
+                return res.status(201).json({
+                    simulated: true,
+                    message: "Modo simulación: El producto se habría creado con éxito.",
+                });
+            }
+
             const newProduct = await ProductService.createProduct(productData);
             res.status(201).json(newProduct);
         } catch (error) {
@@ -53,6 +61,14 @@ export class ProductController {
     static async deleteProduct(req, res) {
         try {
             const { id } = req.params;
+
+            // Lógica de Dry Run
+            if (req.user && req.user.admin && !req.user.superAdmin) {
+                return res.status(200).json({
+                    simulated: true,
+                    message: `Modo simulación: El producto con ID ${id} se habría eliminado.`,
+                });
+            }
             const result = await ProductService.deleteProduct(id);
 
             if (!result) {
