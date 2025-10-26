@@ -80,4 +80,31 @@ export class ProductController {
             res.status(500).json({ message: "Error interno del servidor al eliminar el producto." });
         }
     }
+
+    static async updateProduct(req, res) {
+        try {
+            const { id } = req.params;
+            const productData = req.body;
+
+            // Lógica de Dry Run
+            if (req.user && req.user.admin && !req.user.superAdmin) {
+                return res.status(200).json({
+                    simulated: true,
+                    message: `Modo simulación: El producto con ID ${id} se habría actualizado.`,
+                });
+            }
+
+            const updatedProduct = await ProductService.updateProduct(id, productData);
+
+            if (!updatedProduct) {
+                return res.status(404).json({ message: "Producto no encontrado para actualizar." });
+            }
+
+            res.status(200).json(updatedProduct);
+        } catch (error) {
+            // Mejorar el log de errores
+            console.error("Error en updateProduct:", error);
+            res.status(500).json({ message: "Error interno del servidor al actualizar el producto." });
+        }
+    }
 }

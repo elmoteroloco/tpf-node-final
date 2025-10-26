@@ -10,13 +10,14 @@ export class ProductService {
     }
 
     static async createProduct(productData) {
-        // Aquí es donde, en el futuro, pondremos la lógica de negocio,
-        // como la validación de roles o el modo de simulación.
-        // Por ahora, simplemente llamamos al modelo.
         return await ProductModel.create(productData);
     }
 
     static async deleteProduct(id) {
         return await ProductModel.delete(id);
+    }
+
+    static async updateProduct(id, productData) {
+        return await ProductModel.update(id, productData);
     }
 }

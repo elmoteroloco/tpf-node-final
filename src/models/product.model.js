@@ -52,4 +52,20 @@ export class ProductModel {
             throw new Error("No se pudo eliminar el producto.");
         }
     }
+
+    static async update(id, productData) {
+        try {
+            const productRef = db.collection("productos").doc(id);
+            const doc = await productRef.get();
+            if (!doc.exists) {
+                return null;
+            }
+            await productRef.update(productData);
+            const updatedDoc = await productRef.get();
+            return { id: updatedDoc.id, ...updatedDoc.data() };
+        } catch (error) {
+            console.error(`Error en ProductModel.update(${id}):`, error);
+            throw new Error("No se pudo actualizar el producto.");
+        }
+    }
 }
