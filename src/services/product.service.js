@@ -1,23 +1,23 @@
-import { ProductModel } from "../models/product.model.js";
+import { ProductModel } from "../models/product.model.js"
 
 export class ProductService {
     static async getAllProducts() {
-        return await ProductModel.getAll();
+        return await ProductModel.getAll()
     }
 
     static async getProductById(id) {
-        return await ProductModel.getById(id);
+        return await ProductModel.getById(id)
     }
 
     static async createProduct(productData) {
-        return await ProductModel.create(productData);
+        return await ProductModel.create(productData)
     }
 
     static async deleteProduct(id) {
-        return await ProductModel.delete(id);
+        return await ProductModel.delete(id)
     }
 
     static async updateProduct(id, productData) {
-        return await ProductModel.update(id, productData);
+        return await ProductModel.update(id, productData)
     }
 }

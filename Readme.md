@@ -8,27 +8,27 @@ Este repositorio contiene el código fuente del servidor backend, desarrollado e
 
 ## Tecnologías Utilizadas
 
-*   **Node.js:** Entorno de ejecución para JavaScript del lado del servidor.
-*   **Express.js:** Framework para la creación de la API RESTful y la gestión de rutas y middlewares.
-*   **Firebase Admin SDK:** Para la integración con **Firestore** como base de datos NoSQL.
-*   **JSON Web Token (JWT):** Para la generación de tokens de autenticación en el endpoint de login y la protección de rutas.
-*   **CORS:** Middleware para habilitar el Intercambio de Recursos de Origen Cruzado.
-*   **Dotenv:** Para la gestión de variables de entorno, manteniendo la configuración sensible fuera del código.
+- **Node.js:** Entorno de ejecución para JavaScript del lado del servidor.
+- **Express.js:** Framework para la creación de la API RESTful y la gestión de rutas y middlewares.
+- **Firebase Admin SDK:** Para la integración con **Firestore** como base de datos NoSQL.
+- **JSON Web Token (JWT):** Para la generación de tokens de autenticación en el endpoint de login y la protección de rutas.
+- **CORS:** Middleware para habilitar el Intercambio de Recursos de Origen Cruzado.
+- **Dotenv:** Para la gestión de variables de entorno, manteniendo la configuración sensible fuera del código.
 
 ## Características Principales
 
-*   **Arquitectura en Capas:** El proyecto está estructurado en `routes`, `controllers`, `services` y `models` para una mejor organización y escalabilidad.
-*   **API RESTful:** Endpoints para operaciones CRUD (Crear, Leer, Actualizar, Eliminar) sobre los productos.
-*   **Autenticación con JWT:** Un endpoint `/auth/login` valida las credenciales del usuario y devuelve un Bearer Token para ser utilizado en peticiones posteriores.
-*   **Rutas Protegidas:** Un middleware verifica la validez del JWT para asegurar que solo usuarios autenticados puedan realizar operaciones de escritura (POST, PUT, DELETE).
+- **Arquitectura en Capas:** El proyecto está estructurado en `routes`, `controllers`, `services` y `models` para una mejor organización y escalabilidad.
+- **API RESTful:** Endpoints para operaciones CRUD (Crear, Leer, Actualizar, Eliminar) sobre los productos.
+- **Autenticación con JWT:** Un endpoint `/auth/login` valida las credenciales del usuario y devuelve un Bearer Token para ser utilizado en peticiones posteriores.
+- **Rutas Protegidas:** Un middleware verifica la validez del JWT para asegurar que solo usuarios autenticados puedan realizar operaciones de escritura (POST, PUT, DELETE).
 
 ## Endpoints de la API
 
-*   `GET /api/products`: Devuelve todos los productos.
-*   `GET /api/products/:id`: Devuelve un producto por su ID.
-*   `POST /api/products/create`: (Protegido) Agrega un nuevo producto.
-*   `DELETE /api/products/:id`: (Protegido) Elimina un producto por su ID.
-*   `POST /auth/login`: Recibe credenciales y devuelve un Bearer Token.
+- `GET /api/products`: Devuelve todos los productos.
+- `GET /api/products/:id`: Devuelve un producto por su ID.
+- `POST /api/products/create`: (Protegido) Agrega un nuevo producto.
+- `DELETE /api/products/:id`: (Protegido) Elimina un producto por su ID.
+- `POST /auth/login`: Recibe credenciales y devuelve un Bearer Token.
 
 ## Instalación y Uso
 
